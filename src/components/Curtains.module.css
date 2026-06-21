@@ -12,7 +12,7 @@
   top: 0;
   width: 50%;
   height: 100vh;
-  background: linear-gradient(90deg, #A88734 0%, #D4AF37 40%, #E5C170 60%, #A88734 100%);
+  background: linear-gradient(90deg, #EADFCA 0%, #F8F3E6 40%, #FFFFFF 60%, #EADFCA 100%);
   background-size: 200% 100%;
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
