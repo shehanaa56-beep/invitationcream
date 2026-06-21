@@ -1,0 +1,81 @@
+.section {
+  padding: 80px 20px;
+  background-color: var(--bg-soft-ivory);
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.title {
+  color: var(--text-dark-taupe);
+  margin-bottom: 5px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 70px;
+  height: 80px;
+  background-color: var(--bg-soft-ivory);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+/* Inner gold border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.value {
+  font-family: var(--font-serif-primary);
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--primary-muted-gold);
+  line-height: 1;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  color: var(--text-dark-taupe);
+  opacity: 0.6;
+}
+
+@media (min-width: 380px) {
+  .cards {
+    gap: 20px;
+  }
+  .card {
+    width: 80px;
+    height: 90px;
+  }
+  .value {
+    font-size: 2.2rem;
+  }
+  .label {
+    font-size: 0.6rem;
+  }
+}

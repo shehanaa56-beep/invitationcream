@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+:root {
+  /* Color Palette - Royal Palace */
+  --bg-pearl-white: #FCFBF9;
+  --bg-champagne-cream: #F8F5EE;
+  --bg-soft-ivory: #FDFCF0;
+  
+  --primary-champagne-gold: #E5C170;
+  --primary-muted-gold: #CBA135;
+  --primary-rose-gold: #B76E79;
+  
+  --text-dark-taupe: #4A4036;
+  --text-warm-brown: #3E2723;
+  --text-soft-gold: #9E7D3F;
+  
+  --accent-luxury-beige: #D5C7A3;
+  --accent-royal-sand: #C2B280;
+  
+  --gold-gradient: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA8A24 100%);
+  --gold-gradient-dark: linear-gradient(135deg, #CBA135 0%, #9E7D3F 50%, #684F1D 100%);
+  
+  /* Fonts */
+  --font-cursive: 'Great Vibes', cursive;
+  --font-serif-primary: 'Cinzel', serif;
+  --font-serif-secondary: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+  
+  /* Shadows */
+  --shadow-light: 0 10px 30px rgba(74, 64, 54, 0.08);
+  --shadow-medium: 0 15px 40px rgba(74, 64, 54, 0.15);
+  --shadow-gold: 0 4px 15px rgba(212, 175, 55, 0.25);
+  --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+  --shadow-wax: 0 4px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
+  
+  /* Borders */
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  
+  /* Animations */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-champagne-cream);
+  color: var(--text-dark-taupe);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Luxury Paper Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 430px; /* Mobile first strict container */
+  margin: 0 auto;
+  background-color: var(--bg-champagne-cream);
+  position: relative;
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-pearl-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-muted-gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-champagne-gold);
+}
+
+/* Typography styles */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif-primary);
+  font-weight: 500;
+}
+
+/* Common text patterns */
+.cursive-title {
+  font-family: var(--font-cursive);
+  font-size: 3.5rem;
+  color: var(--primary-muted-gold);
+  line-height: 1;
+}
+
+.section-subtitle {
+  font-family: var(--font-serif-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: var(--primary-muted-gold);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-serif-secondary);
+  font-style: italic;
+  font-size: 2.8rem;
+  color: var(--text-warm-brown);
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+/* Gold Separator */
+.gold-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto 40px;
+  width: 100%;
+}
+.gold-separator::before,
+.gold-separator::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: var(--primary-muted-gold);
+}
+.gold-separator::before {
+  margin-right: 12px;
+}
+.gold-separator::after {
+  margin-left: 12px;
+}
+.gold-separator-icon {
+  color: var(--primary-muted-gold);
+  font-size: 10px;
+  display: inline-block;
+  transform: rotate(45deg);
+}
+
+/* Buttons */
+.btn-gold {
+  background: var(--gold-gradient);
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  font-family: var(--font-serif-primary);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  border: 1px solid var(--primary-muted-gold);
+  color: var(--primary-muted-gold);
+  padding: 14px 28px;
+  font-family: var(--font-serif-primary);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(203, 161, 53, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Card base */
+.luxury-card {
+  background: var(--bg-soft-ivory);
+  border-radius: var(--border-radius-sm);
+  padding: 30px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(203, 161, 53, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid rgba(203, 161, 53, 0.15);
+  border-radius: calc(var(--border-radius-sm) - 4px);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gold Text Effect */
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

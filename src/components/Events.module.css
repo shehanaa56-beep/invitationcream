@@ -1,0 +1,112 @@
+.section {
+  padding: 80px 20px;
+  background-color: var(--bg-champagne-cream);
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(253, 252, 240, 1) 0%, rgba(248, 245, 238, 1) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  text-align: left;
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px dashed rgba(212, 175, 55, 0.3);
+  border-radius: calc(var(--border-radius-md) - 3px);
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.iconWrap {
+  width: 40px;
+  height: 40px;
+  background: var(--gold-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-gold);
+  border: 2px solid var(--bg-soft-ivory);
+}
+
+.name {
+  font-family: var(--font-serif-primary);
+  font-size: 1.4rem;
+  color: var(--text-warm-brown);
+  line-height: 1.2;
+}
+
+.date {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary-muted-gold);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.detail {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.detailLabel {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  color: var(--primary-muted-gold);
+  margin-bottom: 3px;
+}
+
+.detailVal {
+  font-family: var(--font-serif-secondary);
+  font-size: 0.9rem;
+  color: var(--text-dark-taupe);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

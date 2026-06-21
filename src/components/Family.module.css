@@ -1,0 +1,114 @@
+.section {
+  padding: 80px 20px;
+  background-color: var(--bg-champagne-cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.archCard {
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--bg-soft-ivory);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 60px 30px 50px;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+}
+
+/* Inner gold border */
+.archCard::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed rgba(212, 175, 55, 0.5);
+  border-top-left-radius: 152px;
+  border-top-right-radius: 152px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  pointer-events: none;
+}
+
+/* Corner ornaments */
+.archCard::after {
+  content: "❧";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  color: var(--primary-muted-gold);
+  font-size: 1.2rem;
+  transform: rotate(180deg);
+}
+.archCardDecoration {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: var(--primary-muted-gold);
+  font-size: 1.2rem;
+}
+
+.bismillahArabic {
+  font-family: var(--font-serif-primary);
+  font-size: 1.6rem;
+  color: var(--primary-muted-gold);
+  margin-bottom: 5px;
+}
+
+.bismillahEnglish {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dark-taupe);
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.intro {
+  font-family: var(--font-serif-secondary);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-dark-taupe);
+  opacity: 0.8;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.familyBlock {
+  margin-bottom: 20px;
+}
+
+.parents {
+  font-family: var(--font-serif-primary);
+  font-size: 1.1rem;
+  color: var(--primary-muted-gold);
+  margin-bottom: 5px;
+}
+
+.andFamily {
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dark-taupe);
+  opacity: 0.6;
+}
+
+.joinedWith {
+  font-family: var(--font-serif-secondary);
+  font-size: 0.8rem;
+  color: var(--primary-champagne-gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 25px 0;
+}
