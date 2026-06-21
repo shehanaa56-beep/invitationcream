@@ -282,7 +282,6 @@
   position: absolute;
   top: 56%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 10;
   cursor: pointer;
   display: flex;

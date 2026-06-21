@@ -120,6 +120,7 @@ export default function Envelope({ onOpen }) {
                 {(phase === 'idle' || phase === 'breaking') && (
                   <motion.div
                     className={`${styles.sealWrap} ${phase === 'breaking' ? styles.sealBreaking : ''}`}
+                    style={{ x: "-50%", y: "-50%" }}
                     whileHover={phase === 'idle' ? { scale: 1.02 } : {}}
                     whileTap={phase === 'idle' ? { scale: 0.98 } : {}}
                     onClick={handleSealClick}
