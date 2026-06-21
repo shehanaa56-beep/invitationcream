@@ -1,5 +1,6 @@
 .section {
-  padding: 80px 20px;
+  min-height: 100vh;
+  padding: 30px 20px;
   background-color: var(--bg-champagne-cream);
   display: flex;
   justify-content: center;
@@ -19,8 +20,33 @@
   border-bottom-right-radius: 8px;
   padding: 60px 30px 50px;
   text-align: center;
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 15px 40px rgba(62, 39, 35, 0.12);
   position: relative;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .archCard {
+    padding: 40px 20px 30px;
+    border-top-left-radius: 140px;
+    border-top-right-radius: 140px;
+  }
+  .bismillahEnglish {
+    margin-bottom: 15px;
+  }
+  .intro {
+    margin-bottom: 15px;
+    font-size: 0.75rem;
+  }
+  .familyBlock {
+    margin-bottom: 12px;
+  }
+  .joinedWith {
+    margin: 15px 0;
+  }
+  .parents {
+    font-size: 1.15rem !important;
+  }
 }
 
 /* Inner gold border */
@@ -49,6 +75,7 @@
   font-size: 1.2rem;
   transform: rotate(180deg);
 }
+
 .archCardDecoration {
   position: absolute;
   bottom: 12px;
@@ -90,8 +117,13 @@
 
 .parents {
   font-family: var(--font-serif-primary);
-  font-size: 1.1rem;
-  color: var(--primary-muted-gold);
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, var(--text-warm-brown) 0%, var(--primary-muted-gold) 50%, var(--text-warm-brown) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 600;
   margin-bottom: 5px;
 }
 
@@ -107,8 +139,28 @@
 .joinedWith {
   font-family: var(--font-serif-secondary);
   font-size: 0.8rem;
-  color: var(--primary-champagne-gold);
-  letter-spacing: 2px;
+  color: var(--text-dark-taupe);
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin: 25px 0;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joinedWith::before,
+.joinedWith::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--text-dark-taupe), transparent);
+  opacity: 0.4;
+}
+
+.joinedWith::before {
+  margin-right: 15px;
+}
+
+.joinedWith::after {
+  margin-left: 15px;
 }

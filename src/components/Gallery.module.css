@@ -1,22 +1,36 @@
 .section {
-  padding: 80px 20px;
+  min-height: 100vh;
+  padding: 40px 20px;
   background-color: var(--bg-soft-ivory);
   text-align: center;
   position: relative;
   z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    gap: 8px;
+    max-width: 290px;
+  }
 }
 
 @media (min-width: 600px) {
   .masonry {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
 }
 
@@ -27,13 +41,6 @@
   cursor: pointer;
   border: 2px solid var(--primary-champagne-gold);
   box-shadow: var(--shadow-light);
-}
-
-/* Alternate aspect ratios for masonry feel */
-.item:nth-child(even) {
-  aspect-ratio: 3/4;
-}
-.item:nth-child(odd) {
   aspect-ratio: 1/1;
 }
 

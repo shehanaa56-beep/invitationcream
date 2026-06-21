@@ -1,13 +1,19 @@
 .section {
-  padding: 80px 20px;
+  min-height: 100vh;
+  padding: 40px 20px;
   background-color: var(--bg-soft-ivory);
   text-align: center;
   position: relative;
   z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
-  max-width: 500px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   background: var(--bg-champagne-cream);
   border-radius: var(--border-radius-md);
@@ -98,5 +104,28 @@
   }
   .btn {
     flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrap {
+    display: none;
+  }
+  .card {
+    padding: 15px;
+  }
+  .mapWrap {
+    height: 160px;
+    margin-bottom: 15px;
+  }
+  .venueName {
+    font-size: 1.25rem;
+  }
+  .address {
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+  }
+  .btns {
+    gap: 8px;
   }
 }

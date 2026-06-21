@@ -35,12 +35,12 @@ const DEFAULT_SETTINGS = {
   groomTagline: "A gentleman with a kind soul and steady love.",
   brideSiblings: "Sister: Sana · Brother: Ahmed",
   groomSiblings: "Brother: Yusuf · Sister: Maryam",
-  venue: "Grand Pearl Banquet",
-  venueAddress: "Grand Pearl Banquet, 24 Rose Avenue, Garden District",
-  venueMapsUrl: "https://maps.google.com/?q=Grand+Pearl+Banquet",
+  venue: "Emmu Auditorium",
+  venueAddress: "Emmu Auditorium, Bypass Road, Perinthalmanna, Kerala 679322",
+  venueMapsUrl: "https://maps.google.com/?q=Emmu+Auditorium+Perinthalmanna",
   events: [
     { id: "mehendi", name: "Mehendi", icon: "leaf", date: "Dec 10, 2026", time: "4:00 PM", venue: "Rose Garden Hall" },
-    { id: "nikah", name: "Nikah", icon: "heart", date: "Dec 12, 2026", time: "5:00 PM", venue: "Grand Pearl Banquet" },
+    { id: "nikah", name: "Nikah", icon: "heart", date: "Dec 12, 2026", time: "5:00 PM", venue: "Emmu Auditorium" },
     { id: "reception", name: "Reception", icon: "star", date: "Dec 13, 2026", time: "7:00 PM", venue: "Crystal Ballroom" },
   ],
   bankAccount: "Aaliya Rahman",
@@ -80,15 +80,64 @@ export async function getRSVPs() {
 // ─── Settings ────────────────────────────────────────────────────────────────
 
 export async function getSettings() {
+  let settings = DEFAULT_SETTINGS;
   try {
     const snap = await getDoc(doc(db, "config", "settings"));
-    if (snap.exists()) return { ...DEFAULT_SETTINGS, ...snap.data() };
+    if (snap.exists()) {
+      settings = { ...DEFAULT_SETTINGS, ...snap.data() };
+    } else {
+      const stored = localStorage.getItem("weddingSettings");
+      if (stored) settings = { ...DEFAULT_SETTINGS, ...JSON.parse(stored) };
+    }
   } catch (err) {
     console.warn("Firestore settings read failed:", err.message);
     const stored = localStorage.getItem("weddingSettings");
-    if (stored) return { ...DEFAULT_SETTINGS, ...JSON.parse(stored) };
+    if (stored) settings = { ...DEFAULT_SETTINGS, ...JSON.parse(stored) };
   }
-  return DEFAULT_SETTINGS;
+
+  // Force Perinthalmanna location migration if it's still default or empty or "Garden District"
+  if (
+    !settings.venueAddress ||
+    settings.venueAddress.includes("Garden District") ||
+    settings.venueAddress === "Avenue, Garden District" ||
+    settings.venue === "Grand Pearl Banquet"
+  ) {
+    settings.venue = "Emmu Auditorium";
+    settings.venueAddress = "Emmu Auditorium, Bypass Road, Perinthalmanna, Kerala 679322";
+    settings.venueMapsUrl = "https://maps.google.com/?q=Emmu+Auditorium+Perinthalmanna";
+
+    // Also migrate Nikah venue
+    if (settings.events) {
+      settings.events = settings.events.map(ev => 
+        ev.id === "nikah" && ev.venue === "Grand Pearl Banquet" 
+          ? { ...ev, venue: "Emmu Auditorium" } 
+          : ev
+      );
+    }
+
+    // Save to localstorage so it updates there as well
+    try {
+      const stored = localStorage.getItem("weddingSettings");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        parsed.venue = settings.venue;
+        parsed.venueAddress = settings.venueAddress;
+        parsed.venueMapsUrl = settings.venueMapsUrl;
+        if (parsed.events) {
+          parsed.events = parsed.events.map(ev => 
+            ev.id === "nikah" && ev.venue === "Grand Pearl Banquet" 
+              ? { ...ev, venue: "Emmu Auditorium" } 
+              : ev
+          );
+        }
+        localStorage.setItem("weddingSettings", JSON.stringify(parsed));
+      }
+    } catch (e) {
+      console.warn("Failed to write migrated settings to localStorage", e);
+    }
+  }
+
+  return settings;
 }
 
 export async function updateSettings(data) {

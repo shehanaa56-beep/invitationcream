@@ -6,13 +6,11 @@ import Envelope from './components/Envelope';
 import Curtains from './components/Curtains';
 import Hero from './components/Hero';
 import Countdown from './components/Countdown';
-import Couple from './components/Couple';
 import Gallery from './components/Gallery';
 import Events from './components/Events';
 import Venue from './components/Venue';
 import Family from './components/Family';
 import RSVP from './components/RSVP';
-import Gift from './components/Gift';
 import Share from './components/Share';
 import Footer from './components/Footer';
 import MusicPlayer from './components/MusicPlayer';
@@ -53,11 +51,9 @@ function InvitationPage() {
             <Curtains />
             <Hero settings={settings} guestName={guestName} />
             <Countdown settings={settings} />
-            <Couple settings={settings} />
             <Family settings={settings} />
             <Events settings={settings} />
             <Venue settings={settings} />
-            <Gift settings={settings} />
             <Share settings={settings} />
             <Gallery />
             <RSVP />

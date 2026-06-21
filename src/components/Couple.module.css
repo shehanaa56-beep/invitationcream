@@ -51,7 +51,11 @@
 .name {
   font-family: var(--font-cursive);
   font-size: 3.5rem;
-  color: var(--primary-muted-gold);
+  background: linear-gradient(135deg, var(--text-warm-brown) 0%, var(--primary-muted-gold) 50%, var(--text-warm-brown) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
   margin-bottom: 5px;
   line-height: 1;
 }

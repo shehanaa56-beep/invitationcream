@@ -4,7 +4,7 @@ import styles from './Family.module.css';
 export default function Family({ settings }) {
   return (
     <section className={styles.section} id="invitation-card">
-      <motion.div 
+      <motion.div
         className={styles.archCard}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -12,7 +12,7 @@ export default function Family({ settings }) {
         transition={{ duration: 0.8 }}
       >
         <div className={styles.archCardDecoration}>❧</div>
-        
+
         <motion.p className={styles.bismillahArabic} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }}>
           بسم الله الرحمن الرحيم
         </motion.p>

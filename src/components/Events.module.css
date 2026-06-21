@@ -1,9 +1,14 @@
 .section {
-  padding: 80px 20px;
+  min-height: 100vh;
+  padding: 30px 15px;
   background-color: var(--bg-champagne-cream);
   text-align: center;
   position: relative;
   z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .list {
@@ -12,6 +17,7 @@
   gap: 20px;
   max-width: 400px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .card {
@@ -109,4 +115,57 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .card::before {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 5px;
+  }
+  .header {
+    margin-bottom: 8px;
+    gap: 6px;
+  }
+  .iconWrap {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+    border-width: 1px;
+  }
+  .name {
+    font-size: 0.9rem;
+  }
+  .date {
+    font-size: 0.45rem;
+    letter-spacing: 1px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .detail {
+    padding: 3px 6px;
+    border-radius: 4px;
+  }
+  .detailLabel {
+    font-size: 0.45rem;
+    letter-spacing: 1px;
+    margin-bottom: 1px;
+  }
+  .detailVal {
+    font-size: 0.7rem;
+  }
 }
