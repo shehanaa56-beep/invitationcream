@@ -56,25 +56,13 @@ const DEFAULT_SETTINGS = {
 
 export async function submitRSVP(data) {
   const record = { ...data, submittedAt: new Date().toISOString() };
-  try {
-    await addDoc(collection(db, "rsvps"), record);
-  } catch (err) {
-    console.warn("Firestore write failed, saving to localStorage:", err.message);
-    const existing = JSON.parse(localStorage.getItem("rsvps") || "[]");
-    existing.push({ id: Date.now().toString(), ...record });
-    localStorage.setItem("rsvps", JSON.stringify(existing));
-  }
+  const existing = JSON.parse(localStorage.getItem("rsvps") || "[]");
+  existing.push({ id: Date.now().toString(), ...record });
+  localStorage.setItem("rsvps", JSON.stringify(existing));
 }
 
 export async function getRSVPs() {
-  try {
-    const q = query(collection(db, "rsvps"), orderBy("submittedAt", "desc"));
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
-  } catch (err) {
-    console.warn("Firestore read failed, reading from localStorage:", err.message);
-    return JSON.parse(localStorage.getItem("rsvps") || "[]");
-  }
+  return JSON.parse(localStorage.getItem("rsvps") || "[]");
 }
 
 // ─── Wishes ──────────────────────────────────────────────────────────────────
