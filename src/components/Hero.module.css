@@ -1,292 +1,262 @@
 .hero {
-  position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #FCFBF9;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  /* Deep textured dark chocolate brown gradient */
-  background: radial-gradient(circle at center, #2E190E 0%, #170904 70%, #0C0301 100%);
-  background-size: 150% 150%;
-  animation: bgBreathe 20s ease-in-out infinite alternate;
-}
-
-@keyframes bgBreathe {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-/* Background floating sparkle dust */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 227, 181, 0.8) 0%, rgba(212, 175, 55, 0.4) 60%, transparent 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Outer Border Frame */
-.frame {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border: 1px solid rgba(229, 193, 112, 0.35);
-  pointer-events: none;
-  z-index: 4;
-}
-
-/* Inner Border Frame */
-.innerFrame {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 0.5px solid rgba(229, 193, 112, 0.18);
-  pointer-events: none;
-}
-
-/* Decorative Corner Elements */
-.topLeftDecor {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 110px;
-  height: 110px;
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0.9;
-}
-
-.bottomLeftDecor {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  width: 130px;
-  height: 130px;
-  z-index: 5;
-  pointer-events: none;
-  opacity: 0.95;
-}
-
-.topRightDecor {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 45px;
-  height: 45px;
-  z-index: 5;
-  pointer-events: none;
-  transform: rotate(90deg);
-  opacity: 0.8;
-}
-
-.bottomRightDecor {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 45px;
-  height: 45px;
-  z-index: 5;
-  pointer-events: none;
-  transform: rotate(180deg);
-  opacity: 0.8;
-}
-
-.decorSvg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Content Container */
-.content {
+  padding: 55px 20px 20px 20px;
   position: relative;
-  z-index: 10;
-  text-align: center;
-  width: 100%;
-  max-width: 380px;
-  padding: 3rem 1.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/floral_frame.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  /* Soft transparency for the flowers background */
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  flex-grow: 1;
+  text-align: center;
+  z-index: 10;
+  padding-bottom: 160px;
+  /* Offset to keep text clear of bottom dress */
+  box-sizing: border-box;
 }
 
-/* Guest greetings */
+/* Guest Personalized Invitation Card Overlay */
 .guestGreeting {
-  margin-bottom: 25px;
-  font-family: var(--font-serif-secondary);
-  font-size: 1.05rem;
-  color: var(--primary-champagne-gold);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  line-height: 1.4;
+  background: rgba(253, 252, 240, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 8px 18px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-dark-taupe);
+  box-shadow: 0 4px 10px rgba(62, 39, 35, 0.04);
+}
+
+.guestGreeting p {
+  margin: 0;
+  line-height: 1.3;
 }
 
 .guestName {
   font-family: var(--font-serif-primary);
-  font-weight: 600;
-  color: #fff;
-  font-size: 1.25rem;
-  border-bottom: 1px solid rgba(229, 193, 112, 0.4);
-  padding-bottom: 2px;
+  font-weight: 700;
+  color: var(--text-warm-brown);
+  font-size: 0.85rem;
 }
 
 .guestSubtitle {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 5px;
-  opacity: 0.9;
+  opacity: 0.8;
+  margin-top: 2px;
 }
 
-/* Typography & Layout elements */
-.topFlourishWrapper {
-  margin-bottom: 10px;
-  opacity: 0.85;
+/* Save the Date Overlapping script header */
+.saveTheDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 45px;
+  /* Shift down to clear top flowers */
+  position: relative;
+}
+
+.wordSave {
+  font-family: var(--font-serif-primary);
+  font-size: 1.25rem;
+  letter-spacing: 8px;
+  color: var(--text-warm-brown);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-left: 8px;
+  /* Counteract letter-spacing offset */
+  text-transform: uppercase;
+}
+
+.wordDate {
+  font-family: var(--font-serif-primary);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  color: var(--text-warm-brown);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+
+.wordThe {
+  font-family: var(--font-cursive);
+  font-size: 3.2rem;
+  color: var(--primary-muted-gold);
+  margin: -16px 0 -12px 0;
+  /* Overlaps top and bottom text */
+  z-index: 2;
+  transform: rotate(-6deg);
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
 }
 
 .label {
-  font-family: var(--font-serif-secondary);
-  font-size: 0.75rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 12px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-.namesContainer {
-  margin: 15px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.brideName, .groomName {
-  font-family: var(--font-cursive);
-  font-size: 4rem;
-  line-height: 1.05;
-  color: var(--primary-champagne-gold);
-  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-  margin: 0;
-  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA8A24 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Ampersand styled with leaves on sides */
-.ampersandWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 5px 0;
-  width: 100%;
-}
-
-.ampersand {
-  font-family: var(--font-serif-secondary);
-  font-size: 1.8rem;
-  font-style: italic;
-  color: #fff;
-  opacity: 0.95;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
-}
-
-.sideLeafLeft, .sideLeafRight {
-  opacity: 0.75;
-}
-
-/* Divider lines in center */
-.middleDivider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
-  width: 100%;
-  max-width: 160px;
-}
-
-.dividerLine {
-  height: 0.5px;
-  flex: 1;
-  background: linear-gradient(to right, transparent, rgba(229, 193, 112, 0.4), transparent);
-}
-
-.dividerFloret {
+  font-family: var(--font-serif-primary);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--text-dark-taupe);
+  margin: 5px 0 10px 0;
+  font-weight: 600;
   opacity: 0.85;
 }
 
-.tagline {
+/* Names rendering block */
+.names {
   font-family: var(--font-serif-secondary);
-  font-size: 0.9rem;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
-  margin: 15px 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-warm-brown);
+  letter-spacing: 1px;
+  margin: 5px 0 12px 0;
 }
 
-.bottomFlourishLine {
-  margin: 5px auto 15px;
-  opacity: 0.7;
-}
-
-/* Date Grid CSS Layout */
-.dateContainer {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 290px;
-}
-
-.weekday {
+/* Date bar block */
+.date {
   font-family: var(--font-serif-primary);
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-  color: var(--primary-champagne-gold);
-  margin-bottom: 8px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-.dateGrid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border-top: 0.75px solid rgba(229, 193, 112, 0.35);
-  border-bottom: 0.75px solid rgba(229, 193, 112, 0.35);
-  padding: 8px 0;
-}
-
-.dateMonth, .dateYear {
-  font-family: var(--font-serif-primary);
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.9);
-  flex: 1;
-  text-align: center;
-}
-
-.dateDay {
-  font-family: var(--font-serif-primary);
-  font-size: 2.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--primary-champagne-gold);
-  padding: 0 18px;
-  line-height: 1;
-  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA8A24 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-muted-gold);
+  letter-spacing: 2.5px;
+  margin: 8px 0;
+  border-top: 1px solid rgba(203, 161, 53, 0.25);
+  border-bottom: 1px solid rgba(203, 161, 53, 0.25);
+  padding: 4px 22px;
+  display: inline-block;
 }
 
-.dateDivider {
-  width: 1px;
-  height: 28px;
-  background-color: rgba(229, 193, 112, 0.35);
+/* Venue block */
+.venue {
+  font-family: var(--font-serif-primary);
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  color: var(--text-dark-taupe);
+  margin: 4px 0 0 0;
+  font-weight: 500;
+  line-height: 1.45;
+  max-width: 300px;
+  text-transform: uppercase;
+}
+
+/* Tuxedo and Wedding Dress illustration wrapper */
+.illustrationWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 380px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 4;
+  pointer-events: none;
+  /* Let clicks pass through to any background links if necessary */
+  margin: 0;
+}
+
+.illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  /* Blends white background away seamlessly */
+}
+
+/* Mobile responsive constraints to fit strictly in viewport */
+@media (max-width: 480px) {
+  .hero {
+    padding: 35px 15px 15px 15px;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+
+  .guestGreeting {
+    margin-bottom: 12px;
+    padding: 6px 14px;
+  }
+
+  .saveTheDate {
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  .wordSave {
+    font-size: 1.05rem;
+    letter-spacing: 6px;
+    margin-left: 6px;
+  }
+
+  .wordDate {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    margin-left: 4px;
+  }
+
+  .wordThe {
+    font-size: 2.5rem;
+    margin: -14px 0 -10px 0;
+  }
+
+  .names {
+    font-size: 1.45rem;
+    margin: 4px 0 8px 0;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    padding: 3px 16px;
+    margin: 6px 0;
+  }
+
+  .venue {
+    font-size: 0.62rem;
+    max-width: 260px;
+  }
+
+  .illustrationWrapper {
+    height: 260px;
+    max-width: 310px;
+    bottom: 0;
+  }
+
+  .illustration {
+    width: 100%;
+    height: 100%;
+  }
 }

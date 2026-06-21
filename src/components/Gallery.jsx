@@ -8,12 +8,14 @@ import 'swiper/css/zoom';
 import styles from './Gallery.module.css';
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=400&auto=format&fit=crop', alt: 'Wedding Detail' },
-  { src: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=400&auto=format&fit=crop', alt: 'Rings' },
-  { src: 'https://images.unsplash.com/photo-1596455607563-ad6193f76b17?q=80&w=400&auto=format&fit=crop', alt: 'Bride' },
-  { src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop', alt: 'Groom' },
-  { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=400&auto=format&fit=crop', alt: 'Setup' },
-  { src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=400&auto=format&fit=crop', alt: 'Chandelier' },
+  { src: '/images/11.jfif', alt: 'Wedding Moment 1' },
+  { src: '/images/111.jfif', alt: 'Wedding Moment 2' },
+  { src: '/images/1111.jfif', alt: 'Wedding Moment 3' },
+  { src: '/images/1.jfif', alt: 'Wedding Moment 4' },
+  { src: '/images/2.jfif', alt: 'Wedding Moment 5' },
+  { src: '/images/4.jfif', alt: 'Wedding Moment 7' },
+  { src: '/images/6.jfif', alt: 'Wedding Moment 8' },
+  { src: '/images/7.avif', alt: 'Wedding Moment 9' },
 ];
 
 export default function Gallery() {
@@ -27,7 +29,7 @@ export default function Gallery() {
       <motion.h2 className="section-title" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
         Our Gallery
       </motion.h2>
-      
+
       <div className="gold-separator"><span className="gold-separator-icon">♦</span></div>
 
       <div className={styles.masonry}>

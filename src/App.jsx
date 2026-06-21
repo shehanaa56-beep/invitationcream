@@ -15,7 +15,8 @@ import Share from './components/Share';
 import Footer from './components/Footer';
 import MusicPlayer from './components/MusicPlayer';
 import Admin from './components/Admin';
-
+import Moving from './components/Moving';
+import Wishes from './components/Wishes';
 import { getSettings } from './services/firebase';
 
 function InvitationPage() {
@@ -52,10 +53,12 @@ function InvitationPage() {
             <Hero settings={settings} guestName={guestName} />
             <Countdown settings={settings} />
             <Family settings={settings} />
+            <Moving />
             <Events settings={settings} />
             <Venue settings={settings} />
             <Share settings={settings} />
             <Gallery />
+            <Wishes />
             <RSVP />
             <Footer settings={settings} />
             <MusicPlayer audioRef={audioRef} />

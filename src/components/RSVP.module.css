@@ -1,7 +1,7 @@
 .section {
   min-height: 100vh;
   padding: 30px 15px;
-  background-color: #F7EBE6; /* Very soft rose-cream matching screenshot */
+  background-color: var(--bg-champagne-cream); /* Unified theme background */
   text-align: center;
   position: relative;
   z-index: 5;

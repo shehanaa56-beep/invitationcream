@@ -77,6 +77,47 @@ export async function getRSVPs() {
   }
 }
 
+// ─── Wishes ──────────────────────────────────────────────────────────────────
+
+export async function submitWish(data) {
+  const record = { ...data, submittedAt: new Date().toISOString() };
+  const existing = JSON.parse(localStorage.getItem("wishes") || "[]");
+  existing.push({ id: Date.now().toString(), ...record });
+  localStorage.setItem("wishes", JSON.stringify(existing));
+}
+
+export async function getWishes() {
+  const stored = localStorage.getItem("wishes");
+  let localWishes = [];
+  if (stored) {
+    localWishes = JSON.parse(stored);
+  } else {
+    const defaults = [
+      {
+        id: "default-1",
+        name: "Sana & Family",
+        message: "May your journey together be full of love, laughter, and endless happiness!",
+        submittedAt: "2026-06-20T10:00:00.000Z"
+      },
+      {
+        id: "default-2",
+        name: "Yusuf",
+        message: "Wishing you both a lifetime of beautiful memories and strong love.",
+        submittedAt: "2026-06-20T11:00:00.000Z"
+      },
+      {
+        id: "default-3",
+        name: "Rahul & Anjali",
+        message: "So thrilled to celebrate your special day! Wishing you the absolute best.",
+        submittedAt: "2026-06-21T09:00:00.000Z"
+      }
+    ];
+    localStorage.setItem("wishes", JSON.stringify(defaults));
+    localWishes = defaults;
+  }
+  return localWishes.sort((a, b) => b.submittedAt.localeCompare(a.submittedAt));
+}
+
 // ─── Settings ────────────────────────────────────────────────────────────────
 
 export async function getSettings() {
